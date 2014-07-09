@@ -41,4 +41,18 @@ $ rails new MYAPPNAME --database=postgresql
 
 _Several lines of `setup.sh` have been commented out that setup and enable the firewall. Uncomment them to close all ports except `ssh`, `http`, `https`, and `3000` (the default Rails port)_
 
+## Additional Information
+
+### Sublime Text Users
+
+If you are experiencing problems with files not syncing correctly to your VM while using NFS sharing, add this to the root object in your `*.sublime-project` files:
+
+```js
+"settings": {
+    "atomic_save": false
+}
+```
+
+---
+
 _Disclaimer: This is an [appendTo](http://appendto.com) Labs project and as such there is no promise of support or even future development of this project. We are working on this project to meet a need at appendTo and sharing it in the spirit of open source software. If it helps you or your team meet needs as well, that is awesome – however, use at your own risk._
