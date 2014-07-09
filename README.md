@@ -37,6 +37,7 @@ $ rails new MYAPPNAME --database=postgresql
 * PostgreSQL 9.3
 * nginx 1.6
 * UFW (Uncomplicated FireWall)
+* Node.js (because you just might need it for something)
 
 _Several lines of `setup.sh` have been commented out that setup and enable the firewall. Uncomment them to close all ports except `ssh`, `http`, `https`, and `3000` (the default Rails port)_
 
