@@ -16,11 +16,41 @@ $ vagrant up
 
 All shared files will be located in `/vagrant` on the VM.
 
-__To create a new Rails app that uses PostgreSQL in the VM, change to the shared folder and execute:__
+__To create a new Rails app that uses PostgreSQL in the VM, change to the shared folder (defaults to `/vagrant/`) and execute:__
 
 ```bash
+$ vagrant ssh
+$ cd /vagrant
 $ rails new MYAPPNAME --database=postgresql
 ```
+
+Then on your local machine, edit `config/database.yml` and supply the following information for `default`:
+
+```yaml
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  host: localhost
+  port: 5432
+  pool: 5
+  username: rails_user
+  password: {{PASSWORD_FROM_SETUP_SH}}
+```
+
+Then create the database with:
+
+```bash
+$ rake db:create db:migrate
+```
+
+To run the site:
+
+```bash
+$ cd MYAPPNAME
+$ rails server
+```
+
+Once you do this, you can access your application here: <http://192.168.33.10:3000> (Unless you changed the IP settings in the Vagrantfile).
 
 ## Requirements
 
